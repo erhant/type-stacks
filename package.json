@@ -1,16 +1,17 @@
 {
-  "name": "typestack",
+  "name": "type-stacks",
   "module": "src/index.d.ts",
+  "version": "0.0.1",
   "type": "module",
   "author": "erhant",
   "scripts": {
     "test": "npx tsc --noEmit"
   },
   "dependencies": {
-    "ts-arithmetic": "^0.1.1",
-    "typescript": "^5.2.2"
+    "ts-arithmetic": "^0.1.1"
   },
   "devDependencies": {
+    "typescript": "^5.2.2",
     "@type-challenges/utils": "^0.1.1",
     "bun-types": "latest",
     "prettier": "^3.0.3"

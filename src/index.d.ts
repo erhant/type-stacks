@@ -1,3 +1,3 @@
-export * from "./comparators";
-export * from "./arithmetic";
-export * from "./stack";
+export type * from "./comparators";
+export type * from "./arithmetic";
+export type * from "./stack";

@@ -1,4 +1,5 @@
 import type {
+  Not as NOT,
   Eq as EQ,
   GtOrEq as GTEQ,
   LtOrEq as LTEQ,
@@ -42,7 +43,29 @@ export type Eq<S extends number[]> = S extends [...infer Rest, infer B, infer A]
     : never
   : never;
 
-/** Compare the top two values in the stack.
+/** Check if the top two values are not equal.
+ *
+ * ```ts
+ * // takes
+ * [..., b, a]
+ *
+ * // returns
+ * [..., a != b]
+ * ```
+ */
+export type NotEq<S extends number[]> = S extends [
+  ...infer Rest,
+  infer B,
+  infer A,
+]
+  ? A extends number
+    ? B extends number
+      ? [...Rest, NOT<EQ<A, B>>]
+      : never
+    : never
+  : never;
+
+/** Check if the top two value is greater or equal to the second-top value.
  *
  * ```ts
  * // takes
@@ -64,7 +87,7 @@ export type GtOrEq<S extends number[]> = S extends [
     : never
   : never;
 
-/** Compare the top two values in the stack.
+/** Check if the top two value is lesser or equal to the second-top value.
  *
  * ```ts
  * // takes
@@ -86,7 +109,7 @@ export type LtOrEq<S extends number[]> = S extends [
     : never
   : never;
 
-/** Compare the top two values in the stack.
+/** Check if the top two value is less than the second-top value.
  *
  * ```ts
  * // takes
@@ -104,7 +127,7 @@ export type Lt<S extends number[]> = S extends [...infer Rest, infer B, infer A]
     : never
   : never;
 
-/** Find the top value mod the second from top value.
+/** Check if the top two value is greater than the second-top value.
  *
  * ```ts
  * // takes

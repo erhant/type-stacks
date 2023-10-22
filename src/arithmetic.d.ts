@@ -72,7 +72,7 @@ export type Mul<S extends number[]> = S extends [
     : never
   : never;
 
-/** Divide the top value to the second from-top value.
+/** Divide the top value to the second top value.
  *
  * ```ts
  * // takes
@@ -94,7 +94,7 @@ export type Div<S extends number[]> = S extends [
     : never
   : never;
 
-/** Find the top value mod the second from top value.
+/** Find the top value mod the second top value.
  *
  * ```ts
  * // takes

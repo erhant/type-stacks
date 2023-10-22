@@ -1,5 +1,5 @@
 import type { Expect, Equal } from "@type-challenges/utils";
-import type { Gt, GtOrEq, Lt, LtOrEq, Eq, IsZero } from "../src/index";
+import type { Gt, GtOrEq, Lt, LtOrEq, Eq, IsZero, NotEq } from "../src/index";
 
 type _ = [
   // eq
@@ -7,6 +7,11 @@ type _ = [
   Expect<Equal<Eq<[1, 9, 2]>, [1, 0]>>,
   Expect<Equal<Eq<[1]>, never>>,
   Expect<Equal<Eq<[]>, never>>,
+  // noteq
+  Expect<Equal<NotEq<[1, 9, 9]>, [1, 0]>>,
+  Expect<Equal<NotEq<[1, 9, 2]>, [1, 1]>>,
+  Expect<Equal<NotEq<[1]>, never>>,
+  Expect<Equal<NotEq<[]>, never>>,
   // gt
   Expect<Equal<Gt<[1, 2, 3]>, [1, 1]>>,
   Expect<Equal<Gt<[1, 3, 2]>, [1, 0]>>,
